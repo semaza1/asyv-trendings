@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: asyvtrendings-backend
+    env: node
+    branch: main
+    region: oregon
+    plan: starter
+    root: Back-end
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: MONGO_URI
+        fromSecret: MONGO_URI
+      - key: JWT_SECRET
+        fromSecret: JWT_SECRET
+      - key: JWT_EXPIRES_IN
+        fromSecret: JWT_EXPIRES_IN
+      - key: CLIENT_URL
+        fromSecret: CLIENT_URL
+      - key: CLOUDINARY_CLOUD_NAME
+        fromSecret: CLOUDINARY_CLOUD_NAME
+      - key: CLOUDINARY_API_KEY
+        fromSecret: CLOUDINARY_API_KEY
+      - key: CLOUDINARY_API_SECRET
+        fromSecret: CLOUDINARY_API_SECRET
